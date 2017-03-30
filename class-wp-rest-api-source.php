@@ -87,11 +87,11 @@ class Class_WP_REST_API_Source {
 			<h2>REST API Source</h2>
 			<button>Get some posts</button>
 			<table id="post-list-table">
-				<th>
-					<td>ID</td>
-					<td>Title</td>
-					<td>Button</td>
-				</th>
+				<tr>
+					<th>ID</th>
+					<th>Title</th>
+					<th>Button</th>
+				</tr>
 			</table>
 		</script>
 

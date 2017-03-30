@@ -12,8 +12,8 @@
 		},
 		renderResult: function( model, collection, options ) {
 			var postItem = new postListItem( { 'collection': collection, 'model': model } );
-			console.log(this.$('#post-list-table tbody'));
-			this.$('#post-list-table tbody').append( postListItem.$el );
+			console.log(postItem.$el);
+			this.$('#post-list-table tbody').append( postItem.$el );
 		},
 		render: function() {
 			this.$el.html( this.template );
