@@ -36,6 +36,9 @@ class Class_WP_REST_API_Source {
 	 * Class Constructor
 	 */
 	function __construct() {
+		if ( ! defined( 'REST_POC_URL' ) ) {
+			define( 'REST_POC_URL', trailingslashit( plugins_url( '', __FILE__ ) ) );
+		}
 		add_action( 'admin_enqueue_scripts', array( $this, 'enqueue_scripts_styles' ) );
 
 		// Send to Target on Publish.
@@ -98,7 +101,7 @@ class Class_WP_REST_API_Source {
 		<script type="text/template" id="post-list-item-template" class="template">
 			<td><%= id %></td>
 			<td><%= title.rendered %></td>
-			<td><button>Send to Target!</button></td>
+			<td><button id="<%= id %>">Send to Target!</button></td>
 		</script>
 
 		<?php

@@ -1,7 +1,7 @@
 (
 
-// Stuff goes here.
 /* wp.api.loadPromise.done( */ function($, _) {
+
 	// View for the list container.
 	var postList = Backbone.View.extend({
 		template: _.template( document.getElementById('post-list-table-template').innerHTML ),
@@ -12,7 +12,6 @@
 		},
 		renderResult: function( model, collection, options ) {
 			var postItem = new postListItem( { 'collection': collection, 'model': model } );
-			console.log(postItem.$el);
 			this.$('#post-list-table tbody').append( postItem.$el );
 		},
 		render: function() {
@@ -31,16 +30,24 @@
 		},
 		render: function() {
 			var $el = $(this.el);
-			console.log('rendering post list item');
-			console.log('data', this.model.toJSON());
 			return this.$el.append( this.template( this.model.toJSON() ) );
+		},
+		events: {
+			"click button": "doSomething"
+		},
+		doSomething: function() {
+			alert('lolwut ' + this.model.attributes.title.rendered);
 		}
 	});
 
-	// More Stuff.
+	// Create a new Posts Collection.
 	var postsCollection = new wp.api.collections.Posts;
+	// Populate the Collection.
 	postsCollection.fetch( { data: { per_page: 25 } } );
+	// Populate the View with the Collection.
 	var postsView = new postList( { 'collection': postsCollection });
+
+	console.log('postsCollection', postsCollection);
 
  }
  //) 

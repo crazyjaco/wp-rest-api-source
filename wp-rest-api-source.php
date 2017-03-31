@@ -10,6 +10,4 @@
  * @package rest-api-plugin
  */
 
-define( REST_POC_URL, trailingslashit( plugins_url( '', __FILE__ ) ) );
-
 require_once( 'class-wp-rest-api-source.php' );
